@@ -10,6 +10,7 @@ import Contacts from '../components/home/Contacts.astro';
 // Inspector view 
 import Identity from '../components/inspector/Identity.astro';
 import Pane from '../components/inspector/Pane.astro';
+import Dock from '../components/inspector/Dock.astro';
 
 // interactivity
 import ViewToggle from '../components/ViewToggle.astro';
@@ -38,10 +39,12 @@ import { sections } from '../data/sections';
   >
     <Identity />
     <section
-      class="overflow-y-auto bg-bg-deep p-14 max-[900px]:p-[40px_28px]"
+      class="overflow-y-auto bg-bg-deep p-14 max-[900px]:p-[24px_28px_120px]"
     >
       {sections.map((s) => <Pane section={s} />)}
     </section>
+
+    <Dock />
   </main>
 
   <ViewToggle />

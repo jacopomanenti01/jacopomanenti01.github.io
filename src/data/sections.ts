@@ -1,4 +1,3 @@
-
 export interface SectionItem {
   title: string;
   meta: string;
@@ -12,15 +11,17 @@ export interface Section {
   path: string;
   num: string;
   preview: string;
+  icon: string;   // shown in the mobile dock
   details: string;
   items: SectionItem[];
-  footnote?: string; // optional (the ?)
+  footnote?: string; 
   cv?: boolean;
 }
 
 export const sections: Section[] = [
   {
     id: 'projects',
+    icon: 'lucide:folder-code',
     path: 'projects/',
     num: '01',
     preview: 'rag-ecb · gnn-fraud · zk-trading',
@@ -51,6 +52,7 @@ export const sections: Section[] = [
   },
   {
     id: 'career',
+    icon: 'lucide:briefcase',
     path: 'career/',
     num: '02',
     preview: 'ecb · zenith-global',
@@ -70,6 +72,7 @@ export const sections: Section[] = [
   },
   {
     id: 'education',
+    icon: 'lucide:graduation-cap',
     path: 'education/',
     num: '03',
     preview: 'm.sc ×2 · cum laude',
@@ -94,6 +97,7 @@ export const sections: Section[] = [
   },
   {
     id: 'talks',
+    icon: 'lucide:presentation',
     path: 'talks/',
     num: '04',
     preview: 'main-network · 100+ trained',
@@ -118,6 +122,7 @@ export const sections: Section[] = [
   },
   {
     id: 'cv',
+    icon: 'lucide:file-down',
     path: 'cv/',
     num: '05',
     preview: 'one page · updated 2026-07',

@@ -1,0 +1,28 @@
+---
+import { sections } from '../../data/sections';
+import { Icon } from 'astro-icon/components';
+---
+
+<nav
+  class="fixed bottom-5 left-1/2 z-50 hidden w-[calc(100%-2.5rem)] max-w-[420px]
+         -translate-x-1/2 items-center justify-around gap-1 rounded-2xl
+         border border-line-soft bg-panel/90 px-2 py-2
+         shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur-md
+         max-[900px]:flex"
+  aria-label="Sections"
+>
+  {
+    sections.map((s) => (
+      <a
+        class="side-row dock-row flex flex-1 flex-col items-center gap-1 rounded-xl
+               px-1 py-2 text-[11px] text-txt-faint no-underline transition-all"
+        data-section={s.id}
+        href={'#' + s.id}
+        aria-label={s.path}
+      >
+        <Icon name={s.icon} size={19} />
+        <span class="leading-none">{s.path.replace(/\/$/, '')}</span>
+      </a>
+    ))
+  }
+</nav>

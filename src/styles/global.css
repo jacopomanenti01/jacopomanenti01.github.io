@@ -26,3 +26,9 @@
 .side-row.active .dot {
   color: var(--color-accent);
 }
+
+.dock-row.active {
+  background: color-mix(in oklab, var(--color-accent) 18%, transparent);
+  color: var(--color-accent);
+  border-left-color: transparent;
+}
