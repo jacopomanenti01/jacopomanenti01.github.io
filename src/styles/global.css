@@ -1,4 +1,4 @@
-/* src/styles/global.css */
+
 @import "tailwindcss";
 
 @theme {
@@ -15,6 +15,77 @@
   --color-txt-faint: #5b6672;
   --color-accent: #8fb4dd;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-aura-1: #8fb4dd;  
+  --color-aura-2: #7dd3c0;   
+  --color-aura-3: #9b8fd4;   
+}
+
+
+.aura {
+  position: fixed;
+  inset: -25%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aura::before,
+.aura::after,
+.aura > span {
+  content: "";
+  position: absolute;
+  inset: 0;
+  filter: blur(70px);
+  will-change: opacity;
+}
+
+.aura::before {
+  background: radial-gradient(
+    ellipse 70% 60% at 25% 20%,
+    color-mix(in oklab, var(--color-aura-1) 22%, transparent),
+    transparent 65%
+  );
+  animation: breathe-a 34s ease-in-out infinite;
+}
+
+.aura::after {
+  background: radial-gradient(
+    ellipse 60% 50% at 78% 35%,
+    color-mix(in oklab, var(--color-aura-2) 16%, transparent),
+    transparent 62%
+  );
+  animation: breathe-b 47s ease-in-out infinite;
+}
+
+.aura > span {
+  background: radial-gradient(
+    ellipse 70% 60% at 45% 85%,
+    color-mix(in oklab, var(--color-aura-3) 18%, transparent),
+    transparent 64%
+  );
+  animation: breathe-c 41s ease-in-out infinite;
+}
+
+@keyframes breathe-a {
+  0%, 100% { opacity: 0.35; }
+  50%      { opacity: 1; }
+}
+@keyframes breathe-b {
+  0%, 100% { opacity: 0.9; }
+  50%      { opacity: 0.2; }
+}
+@keyframes breathe-c {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aura::before,
+  .aura::after,
+  .aura > span {
+    animation: none;
+  }
 }
 
 
@@ -26,6 +97,7 @@
 .side-row.active .dot {
   color: var(--color-accent);
 }
+
 
 .dock-row.active {
   background: color-mix(in oklab, var(--color-accent) 18%, transparent);
