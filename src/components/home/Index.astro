@@ -1,0 +1,23 @@
+---
+import { sections } from '../../data/sections';
+---
+
+<div class="mb-[18px] text-xs tracking-[0.18em] text-txt-faint">INDEX</div>
+<nav class="flex flex-col border-t border-line text-base">
+  {
+    sections.map((s) => (
+      <a
+        class="index-row grid grid-cols-[52px_190px_1fr_36px] items-baseline gap-[18px] border-b border-line px-1 py-[19px] no-underline transition-all hover:bg-panel hover:pl-[14px] max-[900px]:grid-cols-[40px_1fr_36px]"
+        href={'#' + s.id}
+        data-open={s.id}
+      >
+        <span class="text-[13px] text-txt-faint">{s.num}</span>
+        <span class="text-txt-bright">{s.path}</span>
+        <span class="text-[12.5px] text-txt-faint max-[900px]:hidden">
+          {s.preview}
+        </span>
+        <span class="text-right text-accent">{s.cv ? '↓' : '→'}</span>
+      </a>
+    ))
+  }
+</nav>

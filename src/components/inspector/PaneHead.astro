@@ -1,0 +1,14 @@
+---
+interface Props {
+  path: string;  
+  details: string;  
+}
+const { path, details } = Astro.props;
+---
+
+<div class="mb-7 flex justify-between text-xs tracking-[0.14em] text-txt-faint">
+  <span>
+    <a class="text-accent no-underline hover:underline" href="#" data-home>~/Jacopo</a><span>/{path}</span>
+  </span>
+  <span>{details}</span>
+</div>

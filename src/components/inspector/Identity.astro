@@ -1,0 +1,44 @@
+---
+import { sections } from '../../data/sections';
+import Footer from './Footer.astro';
+---
+
+<aside
+  class="flex flex-col border-r border-line p-[56px_48px] max-[900px]:border-b max-[900px]:border-r-0 max-[900px]:p-[40px_28px]"
+>
+  <div>
+    <a
+      class="mb-[26px] flex h-11 w-11 items-center justify-center rounded-full border border-line-soft text-[15px] text-accent no-underline transition-all hover:bg-accent hover:text-bg"
+      href="#"
+      data-home>JM</a
+    >
+    <h1 class="m-0 text-[30px] font-medium leading-[1.3] tracking-[-0.01em]">
+      <a class="text-txt-bright no-underline hover:text-accent" href="#" data-home
+        >Jacopo Manenti</a
+      >
+    </h1>
+    <p class="mb-10 mt-3.5 text-[13.5px] leading-[1.7] text-txt-dim">
+      AI Engineer &amp; Researcher — Finance<br />
+      European Central Bank, Frankfurt
+    </p>
+  </div>
+
+  <nav class="flex flex-col border-t border-line text-base">
+    {
+      sections.map((s) => (
+        <a
+          class="side-row flex justify-between border-b border-line border-l-2 border-l-transparent p-[16px_12px] no-underline transition-all hover:border-l-accent hover:bg-panel hover:text-txt-bright"
+          data-section={s.id}
+          href={'#' + s.id}
+        >
+          <span>{s.path}</span>
+          <span class={'dot ' + (s.cv ? 'cv-dot text-accent' : 'text-line-soft')}>
+            {s.cv ? '↓' : '○'}
+          </span>
+        </a>
+      ))
+    }
+  </nav>
+
+  <Footer />
+</aside>

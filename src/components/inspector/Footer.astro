@@ -1,0 +1,23 @@
+---
+import { contacts } from '../../data/contacts';
+import ContactLink from '../ContactLink.astro';
+---
+
+
+<footer class="mt-auto text-xs leading-[2.1]">
+<div>
+    <a class="text-txt-faint no-underline hover:text-accent" href="#" data-home
+    >← back to intro</a
+    >
+</div>
+
+    {contacts.map((c) => (
+        <div>
+            <ContactLink
+            href={c.url}
+            icon={c.icon}
+            name={c.name}
+            />
+        </div>
+    ))}
+</footer>

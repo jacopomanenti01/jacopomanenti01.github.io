@@ -1,0 +1,28 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+@theme {
+  --spacing: 0.25rem;
+  --color-bg: #0b0e12;
+  --color-bg-deep: #090c10;
+  --color-panel: #101722;
+  --color-line: #1a212a;
+  --color-line-soft: #33404f;
+  --color-txt: #ccd4dc;
+  --color-txt-bright: #eef2f6;
+  --color-txt-body: #a8b2bc;
+  --color-txt-dim: #7c8794;
+  --color-txt-faint: #5b6672;
+  --color-accent: #8fb4dd;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+
+.side-row.active {
+  background: var(--color-panel);
+  color: var(--color-txt-bright);
+  border-left-color: var(--color-accent);
+}
+.side-row.active .dot {
+  color: var(--color-accent);
+}

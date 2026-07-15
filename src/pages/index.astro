@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Home view 
+import Hero from '../components/home/Hero.astro';
+import Intro from '../components/home/Intro.astro';
+import Index from '../components/home/Index.astro';
+import Contacts from '../components/home/Contacts.astro';
+
+// Inspector view 
+import Identity from '../components/inspector/Identity.astro';
+import Pane from '../components/inspector/Pane.astro';
+
+// interactivity
+import ViewToggle from '../components/ViewToggle.astro';
+
+// data
+
+import { sections } from '../data/sections';
+---
+
+<Layout>
+  {/* ============ HOME VIEW ============ */}
+  <main id="home" class="flex justify-center px-8 py-[72px]">
+    <div class="flex w-[720px] max-w-full flex-col">
+      <Hero />
+      <Intro />
+      <Index />
+      <Contacts />
+    </div>
+  </main>
+
+  {/* ============ INSPECTOR VIEW ============ */}
+  <main
+    id="inspector"
+    class="grid h-screen grid-cols-[440px_1fr] overflow-hidden max-[900px]:h-auto max-[900px]:grid-cols-1 max-[900px]:overflow-visible"
+    hidden
+  >
+    <Identity />
+    <section
+      class="overflow-y-auto bg-bg-deep p-14 max-[900px]:p-[40px_28px]"
+    >
+      {sections.map((s) => <Pane section={s} />)}
+    </section>
+  </main>
+
+  <ViewToggle />
+</Layout>

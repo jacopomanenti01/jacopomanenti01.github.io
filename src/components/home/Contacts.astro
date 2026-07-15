@@ -1,0 +1,15 @@
+---
+import { contacts } from '../../data/contacts';
+import ContactLink from '../ContactLink.astro';
+---
+
+<footer class="mt-11 flex flex-wrap gap-[26px] text-xs">
+  {contacts.map((c) => (
+    <ContactLink
+      href={c.url}
+      icon={c.icon}
+      name={c.name}
+    />
+  ))}
+</footer>
+

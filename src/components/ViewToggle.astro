@@ -1,0 +1,74 @@
+---
+
+---
+
+<script>
+  const home = document.getElementById('home')!;
+  const inspector = document.getElementById('inspector')!;
+  const sideRows = document.querySelectorAll<HTMLElement>('.side-row');
+  const panes = document.querySelectorAll<HTMLElement>('.pane');
+  const ids = [...panes].map((p) => p.dataset.pane);
+
+  function showHome() {
+    home.hidden = false;
+    inspector.hidden = true;
+    if (location.hash) history.pushState('', '', location.pathname);
+  }
+
+  function showSection(id: string, updateHash = true) {
+    home.hidden = true;
+    inspector.hidden = false;
+
+    sideRows.forEach((r) => {
+      const on = r.dataset.section === id;
+      r.classList.toggle('active', on);
+      const dot = r.querySelector('.dot');
+      if (dot && !dot.classList.contains('cv-dot')) {
+        dot.textContent = on ? '●' : '○';
+      }
+    });
+
+    panes.forEach((p) => {
+      p.hidden = p.dataset.pane !== id;
+    });
+
+    if (updateHash && location.hash !== '#' + id) {
+      history.pushState('', '', '#' + id);
+    }
+  }
+
+  // open inspector
+  document.querySelectorAll<HTMLElement>('[data-open]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSection(a.dataset.open!);
+    });
+  });
+
+  // back to intro
+  document.querySelectorAll<HTMLElement>('[data-home]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      showHome();
+    });
+  });
+
+  // sidebar effects, hover previews, click commits
+  sideRows.forEach((r) => {
+    r.addEventListener('mouseenter', () => showSection(r.dataset.section!, false));
+    r.addEventListener('focus', () => showSection(r.dataset.section!, false));
+    r.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSection(r.dataset.section!);
+    });
+  });
+
+  // back/forward buttons
+  function syncFromHash() {
+    const id = location.hash.slice(1);
+    if (ids.includes(id)) showSection(id, false);
+    else showHome();
+  }
+  window.addEventListener('popstate', syncFromHash);
+  syncFromHash();
+</script>

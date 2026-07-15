@@ -1,0 +1,28 @@
+---
+import Card from './Card.astro';
+import PaneHead from './PaneHead.astro';
+import type { Section } from '../../data/sections';
+
+interface Props {
+  section: Section;
+}
+
+const { section } = Astro.props;
+---
+
+<div class="pane" data-pane={section.id} hidden>
+  <PaneHead path={section.id} details={section.details} />
+
+  <div class="flex flex-col gap-[14px]">
+    {section.items.map((it) => <Card item={it} />)}
+
+    {
+      section.footnote && (
+        <div class="px-[2px] py-[6px] text-xs text-txt-faint">
+          {section.footnote}
+        </div>
+      )
+    }
+
+  </div>
+</div>

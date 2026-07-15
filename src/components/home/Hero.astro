@@ -1,0 +1,28 @@
+---
+import { heroData } from '../../data/hero';
+
+---
+
+
+
+<header class="mb-11 flex items-start gap-9">
+  <img
+    class="h-28 w-28 flex-none rounded-full border border-line-soft object-cover"
+    src={heroData.image}
+    alt={heroData.name}
+    onerror="this.style.visibility='hidden'"
+  />
+  <div>
+    <h1
+      class="m-0 text-[34px] font-medium leading-tight tracking-[-0.01em] text-txt-bright"
+    >
+      {heroData.name}
+    </h1>
+    <p class="mt-2.5 text-sm leading-[1.7] text-accent">
+      {heroData.role}
+    </p>
+    <p class="mt-1 text-[13px] leading-[1.7] text-txt-dim">
+      {heroData.company} · {heroData.location}
+    </p>
+  </div>
+</header>

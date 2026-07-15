@@ -1,0 +1,27 @@
+---
+import type { SectionItem } from '../../data/sections';
+
+interface Props {
+  item: SectionItem;
+}
+const { item } = Astro.props;
+
+const Tag = item.href ? 'a' : 'article';
+---
+
+<Tag
+  class:list={[
+    'block rounded border border-line bg-bg px-[22px] py-5 no-underline',
+    item.href && 'transition-all hover:border-line-soft hover:bg-panel cursor-pointer',
+  ]}
+  href={item.href}
+  download={item.download}
+>
+  <div class="flex justify-between gap-4 text-[15px]">
+    <span class="text-txt-bright">{item.title}</span>
+    <span class="whitespace-nowrap text-xs text-txt-faint">
+      {item.meta}{item.href && ' ↓'}
+    </span>
+  </div>
+  <p class="mt-2 text-[12.5px] leading-[1.7] text-txt-dim">{item.desc}</p>
+</Tag>
