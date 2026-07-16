@@ -6,24 +6,41 @@ interface Props {
 }
 const { item } = Astro.props;
 
+// Render as <a> when the item has a link, otherwise a plain <article>.
+// Capitalised so Astro treats it as a component, not a literal <tag>.
 const Tag = item.href ? 'a' : 'article';
+
+// An external link is any href that isn't a same-origin path.
+// Downloads (/files/cv.pdf) stay in-tab; github.com opens a new one.
+const isExternal = !!item.href && /^https?:\/\//.test(item.href);
+const opensNewTab = isExternal && !item.download;
+
+// ↓ download · ↗ external · nothing if not linked
+const marker = item.download ? '↓' : isExternal ? '↗' : '';
 ---
 
 <Tag
   class:list={[
-    'block rounded border border-line bg-bg px-[22px] py-5 no-underline',
-    item.href && 'transition-all hover:border-line-soft hover:bg-panel cursor-pointer',
+    'block rounded border bg-bg px-[22px] py-5 no-underline',
+    item.href
+      ? 'border-line-soft transition-all hover:border-accent hover:bg-panel cursor-pointer'
+      : 'border-line',
   ]}
   href={item.href}
   download={item.download}
+  target={opensNewTab ? '_blank' : undefined}
+  rel={opensNewTab ? 'noopener noreferrer' : undefined}
 >
   <div
     class="flex justify-between gap-4 text-[15px]
            max-[900px]:flex-col max-[900px]:gap-1"
   >
-    <span class="break-words text-txt-bright">{item.title}</span>
+    {/* Accent title = clickable. The web's native signal for a link. */}
+    <span class:list={['break-words', item.href ? 'text-accent' : 'text-txt-bright']}>
+      {item.title}
+    </span>
     <span class="whitespace-nowrap text-xs text-txt-faint">
-      {item.meta}{item.href && ' ↓'}
+      {item.meta}{marker && <span class="text-accent">{' ' + marker}</span>}
     </span>
   </div>
   <p class="mt-2 text-[12.5px] leading-[1.7] text-txt-dim">{item.desc}</p>

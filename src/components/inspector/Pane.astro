@@ -17,11 +17,21 @@ const { section } = Astro.props;
     {section.items.map((it) => <Card item={it} />)}
 
     {
-      section.footnote && (
-        <div class="px-[2px] py-[6px] text-xs text-txt-faint">
-          {section.footnote}
-        </div>
-      )
+      section.footnote &&
+        (section.footnoteHref ? (
+          <a
+            class="px-[2px] py-[6px] text-xs text-txt-faint no-underline transition-all hover:text-accent"
+            href={section.footnoteHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {section.footnote}
+          </a>
+        ) : (
+          <div class="px-[2px] py-[6px] text-xs text-txt-faint">
+            {section.footnote}
+          </div>
+        ))
     }
 
   </div>

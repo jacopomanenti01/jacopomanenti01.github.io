@@ -7,9 +7,11 @@ import { heroData } from '../../data/hero';
 
 <header class="mb-11 flex items-start gap-9">
   <img
-    class="h-28 w-28 flex-none rounded-full border border-line-soft object-cover"
+    class="h-28 w-28 flex-none cursor-zoom-in rounded-full border border-line-soft
+           object-cover transition-all hover:border-accent"
     src={heroData.image}
     alt={heroData.name}
+    data-lightbox={heroData.image}
     onerror="this.style.visibility='hidden'"
   />
   <div>

@@ -15,6 +15,7 @@ export interface Section {
   details: string;
   items: SectionItem[];
   footnote?: string; 
+  footnoteHref?: string;
   cv?: boolean;
 }
 
@@ -33,7 +34,7 @@ export const sections: Section[] = [
         desc: 'LLM-powered RAG chatbot on ECB collateral eligibility and haircut rules. Curated knowledge base, retrieval pipeline grounded in official sources. Deployed on AWS, used daily by ECB & NCB experts.',
       },
       {
-        title: 'chronos-wage-forecasting',
+        title: '*chronos-wage-forecasting',
         meta: '1st place · 2025',
         desc: 'Sentiment-driven economic indicators from the GDELT Global Knowledge Graph, refining the Chronos II foundation model for Eurozone negotiated-wage forecasts. First place, ECB hackathon.',
       },
@@ -41,14 +42,17 @@ export const sections: Section[] = [
         title: 'zk-algorithmic-trading',
         meta: '2025',
         desc: 'High-frequency trading bot on S&P 500 (Alpaca API) with bracket orders, Grafana/InfluxDB monitoring, and Zero-Knowledge trade verification via Zokrates smart contracts.',
+        href: 'https://github.com/jacopomanenti01/Privacy-Preserving-Algorithmic-Trading-with-Zero-Knowledge-Proofs'
       },
       {
         title: 'gnn-fraud-detection',
         meta: '2024',
         desc: 'Graph neural networks for Bitcoin fraud detection — 95% AUC-ROC on the Elliptic dataset, +12% over GCN baseline using GAT, GraphSMOTE and GNN Transformer.',
+        href: 'https://github.com/jacopomanenti01/Graph-Neural-Networks'
       },
     ],
-    footnote: '+ 3 more on GitHub →',
+    footnote: '+ more on GitHub →',
+    footnoteHref: 'https://github.com/jacopomanenti01'
   },
   {
     id: 'career',
@@ -62,11 +66,13 @@ export const sections: Section[] = [
         title: 'European Central Bank',
         meta: 'Frankfurt · 2024–now',
         desc: 'Financial Analyst, Market Operations — Innovation & Data Analytics. Built the collateral RAG system, dbt pipelines for repo & money-market data (Bloomberg, OneTick), ML-driven research for US bond portfolio rebalancing.',
+        href: 'https://www.ecb.europa.eu/home/html/index.en.html',
       },
       {
         title: 'Zenith Global S.p.A.',
         meta: 'Milan · 2022–23',
         desc: 'Junior Analyst, Master Servicer for NPL portfolios — €1B+ Gross Book Value. Investor reporting with Qlik, regulatory reporting for the Bank of Italy.',
+        href: 'https://www.zenithglobal.eu/en/',
       },
     ],
   },
@@ -114,10 +120,18 @@ export const sections: Section[] = [
         desc: 'Peer-to-peer trainer: 5 sessions on LLMs and RAG for 100+ ECB employees.',
       },
       {
+        title: 'AWS × European Central Bank Hackathon',
+        meta: 'Frankfurt · 2025',
+        desc: 'AI platform for supply-chain due diligence — agents and knowledge graphs, built in 3 days.',
+        href:'https://www.linkedin.com/posts/in-the-5th-edition-of-our-hackathon-series-ugcPost-7399837801896099840-9qSu/'
+      },
+      {
         title: 'SurrealDB × LangChain Hackathon',
         meta: 'London · 2026',
         desc: 'AI platform for supply-chain due diligence — agents and knowledge graphs, built in 3 days.',
+        href:'https://www.linkedin.com/posts/jacopo-manenti-7885651a7_many-thanks-to-surrealdb-and-langchain-for-ugcPost-7436882219870150656-lJLj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADBQeBgBuPl7lszuUFa_le4Z63FnU7qgXbg'
       },
+
     ],
   },
   {
@@ -126,7 +140,7 @@ export const sections: Section[] = [
     path: 'cv/',
     num: '05',
     preview: 'one page · updated 2026-07',
-    details: 'UPDATED 2026-07',
+    details: 'UPDATED 2026-07 - click to download',
     cv: true,
       items: [
     {

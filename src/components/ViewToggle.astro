@@ -71,4 +71,27 @@
   }
   window.addEventListener('popstate', syncFromHash);
   syncFromHash();
+  
+  // lightbox
+  const lightbox = document.getElementById('lightbox') as HTMLDialogElement | null;
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+
+  if (lightbox && lightboxImg) {
+    document.querySelectorAll<HTMLElement>('[data-lightbox]').forEach((el) => {
+      el.addEventListener('click', () => {
+        lightboxImg.src = el.dataset.lightbox!;
+        lightboxImg.alt = el.getAttribute('alt') ?? '';
+        lightbox.showModal();
+      });
+    });
+
+    document
+      .getElementById('lightbox-close')
+      ?.addEventListener('click', () => lightbox.close());
+
+    // Click outside the circle to close.
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.close();
+    });
+  }
 </script>
