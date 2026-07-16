@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jacopomanenti01.github.io/sitemap-index.xml
