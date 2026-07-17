@@ -32,7 +32,7 @@ export const sections: Section[] = [
     details: '*code available on request',
     items: [
     {
-      title: 'rag-ecb-frameworks',
+      title: '*rag-ecb-frameworks',
       meta: 'ECB · 2025–26',
       role: 'Production system',
       desc: 'A multi-host RAG platform serving ECB and NCB experts across Eurosystem frameworks. Each bot is configured against its own combination of frameworks. Piloted on collateral eligibility.',
