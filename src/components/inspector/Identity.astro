@@ -1,5 +1,6 @@
 ---
 import { sections } from '../../data/sections';
+import { heroData } from '../../data/hero';
 import Footer from './Footer.astro';
 ---
 
@@ -14,13 +15,13 @@ import Footer from './Footer.astro';
     >
     <h1 class="m-0 text-[30px] font-medium leading-[1.3] tracking-[-0.01em] max-[900px]:text-[24px]">
       <a class="text-txt-bright no-underline hover:text-accent" href="#" data-home
-        >Jacopo Manenti</a
+        >{heroData.name}</a
       >
     </h1>
-    <p class="mb-10 mt-3.5 text-[13.5px] leading-[1.7] text-txt-dim max-[900px]:mb-5 max-[900px]:mt-2">
-      AI Engineer &amp; Researcher — Finance<br />
-      European Central Bank, Frankfurt
-    </p>
+<p class="mb-10 mt-3.5 text-[13.5px] leading-[1.7] text-txt-dim max-[900px]:mb-5 max-[900px]:mt-2">
+  {heroData.role}<br />
+  {heroData.company} · {heroData.location}
+</p>
     <a
       class="hidden text-xs text-txt-faint no-underline transition-all hover:text-accent max-[900px]:inline-block max-[900px]:mb-5"
       href="#"

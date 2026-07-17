@@ -8,7 +8,7 @@ export interface HeroData {
 
 export const heroData: HeroData = {
   name: 'Jacopo Manenti',
-  role: 'AI & ML Engineer',
+  role: 'AI Engineer & Researcher',
   company: 'European Central Bank',
   location: 'Frankfurt, Germany',
   image: '/portrait.jpeg',

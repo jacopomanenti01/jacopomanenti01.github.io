@@ -8,29 +8,75 @@ interface Props {
 }
 
 const {
-  title = 'Jacopo Manenti — AI Engineer & Researcher, Finance',
-  description = 'AI Engineer & Researcher in Finance. LLM systems in production at the European Central Bank — RAG, data pipelines, ML research for markets.',
+  title = 'Jacopo Manenti — AI Engineer & Researcher, European Central Bank',
+  description = 'Jacopo Manenti is an Italian AI engineer at the European Central Bank. He builds and deploys cloud-native LLM and ML systems for market operations, and researches ML applications for central banking.',
 } = Astro.props;
+
+
 
 const person = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Jacopo Manenti",
+  givenName: "Jacopo",
+  familyName: "Manenti",
   jobTitle: "AI Engineer & Researcher",
-  worksFor: { "@type": "Organization", name: "European Central Bank" },
+  description:
+    "Jacopo Manenti is an Italian AI engineer at the European Central Bank. He builds and deploys cloud-native LLM and machine learning systems for market operations, and researches machine learning applications for central banking.",
   url: "https://jacopomanenti01.github.io",
   image: "https://jacopomanenti01.github.io/portrait.jpeg",
+  email: "mailto:jacopomanenti01@gmail.com",
+  nationality: { "@type": "Country", name: "Italy" },
+  worksFor: {
+    "@type": "Organization",
+    name: "European Central Bank",
+    url: "https://www.ecb.europa.eu",
+  },
+  workLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Frankfurt am Main",
+      addressCountry: "DE",
+    },
+  },
   sameAs: [
     "https://github.com/jacopomanenti01",
     "https://www.linkedin.com/in/jacopo-manenti-7885651a7/",
   ],
   alumniOf: [
-    { "@type": "CollegeOrUniversity", name: "EIT Digital Master School" },
-    { "@type": "CollegeOrUniversity", name: "Università degli Studi di Trento" },
-    { "@type": "CollegeOrUniversity", name: "Eötvös Loránd University" },
-    { "@type": "CollegeOrUniversity", name: "Università Cattolica del Sacro Cuore" },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "EIT Digital Master School",
+      url: "https://masterschool.eitdigital.eu",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Università degli Studi di Trento",
+      url: "https://www.unitn.it",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Eötvös Loránd University",
+      url: "https://www.elte.hu",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Università Cattolica del Sacro Cuore",
+      url: "https://www.unicatt.it",
+    },
   ],
-  knowsAbout: ["Retrieval-Augmented Generation", "Machine Learning", "Fintech", 'LLM', 'Agents', 'Data Science'],
+  knowsAbout: [
+    "Large Language Models",
+    "Retrieval-Augmented Generation",
+    "Machine Learning",
+    "Quantitative Finance",
+    "Central Banking",
+    "Data Engineering",
+    "Fintech", 
+    'Agents', 
+    'Data Science'
+  ],
 };
 
 const site = {

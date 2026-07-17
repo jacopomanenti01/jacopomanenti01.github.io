@@ -2,8 +2,11 @@ export interface SectionItem {
   title: string;
   meta: string;
   desc: string;
-  href?: string;     
-  download?: boolean; 
+  role?: string;
+  bullets?: string[];   
+  tags?: string[];
+  href?: string;
+  download?: boolean;
 }
 
 export interface Section {
@@ -25,7 +28,7 @@ export const sections: Section[] = [
     icon: 'lucide:folder-code',
     path: 'projects/',
     num: '01',
-    preview: 'rag-ecb · gnn-fraud · zk-trading',
+    preview: 'rag · gnn · ml-trading · blockchain',
     details: '*code available on request',
     items: [
       {
@@ -59,21 +62,34 @@ export const sections: Section[] = [
     icon: 'lucide:briefcase',
     path: 'career/',
     num: '02',
-    preview: 'ecb · zenith-global',
+    preview: 'central banking · fintech',
     details: '2022 — NOW',
     items: [
-      {
-        title: 'European Central Bank',
-        meta: 'Frankfurt · 2024–now',
-        desc: 'Financial Analyst, Market Operations — Innovation & Data Analytics. Built the collateral RAG system, dbt pipelines for repo & money-market data (Bloomberg, OneTick), ML-driven research for US bond portfolio rebalancing.',
-        href: 'https://www.ecb.europa.eu/home/html/index.en.html',
-      },
-      {
-        title: 'Zenith Global S.p.A.',
-        meta: 'Milan · 2022–23',
-        desc: 'Junior Analyst, Master Servicer for NPL portfolios — €1B+ Gross Book Value. Investor reporting with Qlik, regulatory reporting for the Bank of Italy.',
-        href: 'https://www.zenithglobal.eu/en/',
-      },
+    {
+      title: 'European Central Bank',
+      meta: 'Frankfurt am Main · 2025–now',
+      role: 'AI Engineer & Researcher — Market Operations, Innovation & Data Analytics',
+      desc: 'Automating business processes and driving adoption of AI and data-driven technology across DG Markets.',
+      bullets: [
+        'Built a multi-host RAG application over Eurosystem frameworks — vector, hybrid and ontology-based knowledge-graph retrieval. Piloted on collateral eligibility; now used daily across the Eurosystem. Deployed on AWS.',
+        'dbt pipelines processing daily repo and money-market transactions from internal databases, Bloomberg, OneTick and clearing house feeds.',
+        "Research across Market Operations and Economics: Nelson-Siegel-Svensson models with survival analysis for ECB's US bond portfolio rebalancing, and GDELT network analysis using media coverage as a proxy for inflation perception in nowcasting.",
+      ],
+      tags: ['Python', 'AWS', 'LangChain', 'LangGraph', 'dbt', 'Tableau', 'Bloomberg', 'OneTick', 'Agents', 'RAG', 'Knowledge Graphs'],
+
+    },
+    {
+      title: 'Zenith Global S.p.A.',
+      meta: 'Milan · 2022–23',
+      role: 'Junior Analyst — Master Servicer, NPL portfolios',
+      desc: "Investor and Banca d'Italia reporting, and regulatory compliance across a €1B+ Gross Book Value non-performing loan portfolio.",      
+      bullets: [
+        'Periodic analysis of NPL portfolios: recovery rates, collection performance, and risk exposure.',
+        'Automated the feed into the internal system with SQL, reconciling collection amounts.',
+        'Investor reporting on a monthly, quarterly and semiannual cycle via Qlik dashboards. Regulatory reporting for the Bank of Italy against prospectus and credit transfer agreement requirements.',
+      ],
+      tags: ['SQL', 'Excel', 'Qlik', 'NPL', 'Regulatory Reporting'],
+    },
     ],
   },
   {
@@ -81,24 +97,38 @@ export const sections: Section[] = [
     icon: 'lucide:graduation-cap',
     path: 'education/',
     num: '03',
-    preview: 'm.sc ×2 · cum laude',
+    preview: 'double M.Sc. in CS · cum laude',
     details: 'CUM LAUDE ×2',
     items: [
       {
         title: 'Double M.Sc. Computer Science — Fintech',
         meta: 'EIT Digital · 2023–25',
-        desc: 'Università di Trento & ELTE Budapest. 110 cum laude (IT), 5/5 (HU).',
+        role: 'Università di Trento & ELTE University Budapest · taught in English · 110 cum laude (IT), 5/5 (HU)',
+        desc: 'Double degree in computer science with a Fintech specialisation path, co-funded by the European Union — two years across Trento and Budapest.',
+        bullets: [
+            'EIT Student Ambassador: promoted the programme at tech events to prospective students and business sponsors.',
+            'Thesis: Comparative Efficacy of RAG Techniques in ECB Collateral Asset Eligibility Management - Towards a Novel Multi-Agent Architecture.',
+          ],
+        tags: ['Machine Learning', 'Deep Learning', 'Graph Neural Networks', 'Financial Simulation', 'Data Mining', 'Distributed Systems', 'Blockchain'],
       },
       {
         title: 'B.Sc. Economics, Organizations & Markets',
         meta: 'Cattolica · 2019–22',
-        desc: 'Università Cattolica del Sacro Cuore, Milan. 110 cum laude.',
-      },
+        role: 'Università Cattolica del Sacro Cuore, Milan · taught in Italian · 110 cum laude',
+        desc: 'Markets-focused economics degree with a strong quantitative component, covering econometrics and statistical analysis.',        bullets: [
+          'Thesis: Bitcoin and 10-year US Treasury yields — analysing the relationship between two time series.',
+        ],
+        tags: ['Python', 'R', 'Econometrics', 'Time Series', 'Statistics'],
+      }, 
       {
         title: 'Summer School in Fintech',
         meta: 'UPM Madrid · 2024',
-        desc: 'ML applied to finance, fintech regulation, and blockchain.',
+        role: 'Universidad Politécnica de Madrid · fully funded, selected by EIT Digital',
+        desc: 'Two-week intensive on fintech, machine learning applied to finance, fintech regulation, and blockchain.',
+        tags: ['Fintech', 'Project Management', 'Networking', 'Pitching'],
+
       },
+      
     ],
   },
   {
@@ -106,7 +136,7 @@ export const sections: Section[] = [
     icon: 'lucide:presentation',
     path: 'talks/',
     num: '04',
-    preview: 'main-network · 100+ trained',
+    preview: 'hackathons · conferences · seminars',     
     details: '100+ TRAINED',
     items: [
       {
@@ -139,7 +169,7 @@ export const sections: Section[] = [
     icon: 'lucide:file-down',
     path: 'cv/',
     num: '05',
-    preview: 'one page · updated 2026-07',
+    preview: 'download · updated 2026-07',
     details: 'UPDATED 2026-07 - click to download',
     cv: true,
       items: [

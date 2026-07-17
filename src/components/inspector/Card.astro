@@ -43,5 +43,27 @@ const marker = item.download ? '↓' : isExternal ? '↗' : '';
       {item.meta}{marker && <span class="text-accent">{' ' + marker}</span>}
     </span>
   </div>
-  <p class="mt-2 text-[12.5px] leading-[1.7] text-txt-dim">{item.desc}</p>
+  {item.role && (
+  <p class="mt-1 text-[12.5px] leading-[1.5] text-txt-body">{item.role}</p>
+)}
+<p class="mt-2 text-[12.5px] leading-[1.7] text-txt-dim">{item.desc}</p>
+
+{item.bullets && (
+  <ul class="mt-3 flex list-none flex-col gap-2 p-0">
+    {item.bullets.map((b) => (
+      <li class="relative pl-4 text-[12.5px] leading-[1.7] text-txt-dim before:absolute before:left-0 before:text-txt-faint before:content-['·']">
+        {b}
+      </li>
+    ))}
+  </ul>
+)}
+{item.tags && (
+  <ul class="mt-4 flex list-none flex-wrap gap-2 p-0">
+    {item.tags.map((t) => (
+      <li class="rounded-full border border-line-soft px-2.5 py-1 text-[11px] text-txt-faint">
+        {t}
+      </li>
+    ))}
+  </ul>
+)}
 </Tag>
