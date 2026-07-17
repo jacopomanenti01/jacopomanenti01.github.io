@@ -32,6 +32,14 @@ const person = {
   ],
   knowsAbout: ["Retrieval-Augmented Generation", "Machine Learning", "Fintech", 'LLM', 'Agents', 'Data Science'],
 };
+
+const site = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Jacopo Manenti",
+  url: "https://jacopomanenti01.github.io",
+};
+
 ---
 
 <!doctype html>
@@ -57,6 +65,7 @@ const person = {
     <link rel="sitemap" href="/sitemap-index.xml" />
     
     <script type="application/ld+json" set:html={JSON.stringify(person)} />
+    <script type="application/ld+json" set:html={JSON.stringify(site)} />
 
   </head>
   <body class="m-0 min-h-screen bg-bg font-mono text-txt">
