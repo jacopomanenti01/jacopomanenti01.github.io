@@ -31,28 +31,42 @@ export const sections: Section[] = [
     preview: 'rag · gnn · ml-trading · blockchain',
     details: '*code available on request',
     items: [
-      {
-        title: '*rag-collateral-eligibility',
-        meta: 'ECB · 2025–26',
-        desc: 'LLM-powered RAG chatbot on ECB collateral eligibility and haircut rules. Curated knowledge base, retrieval pipeline grounded in official sources. Deployed on AWS, used daily by ECB & NCB experts.',
-      },
-      {
-        title: '*chronos-wage-forecasting',
-        meta: '1st place · 2025',
-        desc: 'Sentiment-driven economic indicators from the GDELT Global Knowledge Graph, refining the Chronos II foundation model for Eurozone negotiated-wage forecasts. First place, ECB hackathon.',
-      },
-      {
-        title: 'zk-algorithmic-trading',
-        meta: '2025',
-        desc: 'High-frequency trading bot on S&P 500 (Alpaca API) with bracket orders, Grafana/InfluxDB monitoring, and Zero-Knowledge trade verification via Zokrates smart contracts.',
-        href: 'https://github.com/jacopomanenti01/Privacy-Preserving-Algorithmic-Trading-with-Zero-Knowledge-Proofs'
-      },
-      {
-        title: 'gnn-fraud-detection',
-        meta: '2024',
-        desc: 'Graph neural networks for Bitcoin fraud detection — 95% AUC-ROC on the Elliptic dataset, +12% over GCN baseline using GAT, GraphSMOTE and GNN Transformer.',
-        href: 'https://github.com/jacopomanenti01/Graph-Neural-Networks'
-      },
+    {
+      title: 'rag-ecb-frameworks',
+      meta: 'ECB · 2025–26',
+      role: 'Production system',
+      desc: 'A multi-host RAG platform serving ECB and NCB experts across Eurosystem frameworks. Each bot is configured against its own combination of frameworks. Piloted on collateral eligibility.',
+      bullets: [
+        'Frameworks standardised via a custom ECB ontology built on ELI and FIBO, developed with subject-matter experts, then compiled into a knowledge graph on Apache AGE (EC2). Retrieval spans BM25 through graph traversal, with queries augmented and normalised against the ontology.',
+        'Ports-and-adapters architecture with the compiled LangGraph agent cached on TTL.',
+        'Short- and long-term memory feeds conversations back as durable facts about ECB frameworks.'
+      ],
+      tags: ['AWS', 'Bedrock', 'Apache AGE', 'PostgreSQL', 'Ontologies', 'Datadog', 'LangGraph', 'LangChain', 'RAG', 'Knowledge Graphs'],
+    },
+
+    {
+      title: 'zk-algorithmic-trading',
+      meta: '2025', 
+      desc: 'Algorithmic trading system on S&P 500 via the Alpaca API, driven by an XGBoost trend model with a custom bracket-order execution strategy and live Grafana/InfluxDB telemetry. Zero-knowledge proofs (Zokrates) allow trade execution to be verified on-chain without disclosing the underlying strategy.',
+      tags: ['Python', 'XGBoost', 'Zokrates', 'Solidity', 'Grafana', 'InfluxDB'],
+      href: 'https://github.com/jacopomanenti01/Privacy-Preserving-Algorithmic-Trading-with-Zero-Knowledge-Proofs',
+    },
+    {
+      title: 'gnn-fraud-detection',
+      meta: '2024',
+      desc: 'Node classification over the Elliptic dataset (graph dataset of sampled Bitcoin transactions) labelling nodes as illicit from network topology. 95% AUC-ROC, 12 points over a GCN baseline, using GAT, GraphSMOTE and a GNN Transformer.',      href: 'https://github.com/jacopomanenti01/Graph-Neural-Networks',
+      tags: ['PyTorch', 'PyTorch Geometric', 'NetworkX', 'Network Analysis'],
+
+    },
+    {
+      title: 'easy-music',
+      meta: '2024',
+      role: 'Team of three · EIT Digital',
+      desc: 'NFTs marketplace letting small record labels sell shares of their artists\' music rights to fans and investors. Album rights are minted as ERC-1155 NFTs; labels are onboarded by invitation, then create singers and albums under their own deployed contract. Rights trade via fixed-price sell orders or timed auctions. Deployed on Polygon Amoy testnet.',
+      tags: ['Solidity', 'ERC-1155', 'Polygon', 'Next.js', 'Hardhat'],
+      href: 'https://github.com/jacopomanenti01/Blockchain',
+    },
+
     ],
     footnote: '+ more on GitHub →',
     footnoteHref: 'https://github.com/jacopomanenti01'
@@ -76,7 +90,7 @@ export const sections: Section[] = [
         "Research across Market Operations and Economics: Nelson-Siegel-Svensson models with survival analysis for ECB's US bond portfolio rebalancing, and GDELT network analysis using media coverage as a proxy for inflation perception in nowcasting.",
       ],
       tags: ['Python', 'AWS', 'LangChain', 'LangGraph', 'dbt', 'Tableau', 'Bloomberg', 'OneTick', 'Agents', 'RAG', 'Knowledge Graphs'],
-
+      href: "https://www.ecb.europa.eu/home/html/index.en.html"
     },
     {
       title: 'Zenith Global S.p.A.',
@@ -89,6 +103,7 @@ export const sections: Section[] = [
         'Investor reporting on a monthly, quarterly and semiannual cycle via Qlik dashboards. Regulatory reporting for the Bank of Italy against prospectus and credit transfer agreement requirements.',
       ],
       tags: ['SQL', 'Excel', 'Qlik', 'NPL', 'Regulatory Reporting'],
+      href: "https://www.zenithglobal.eu/en/"
     },
     ],
   },
@@ -142,25 +157,31 @@ export const sections: Section[] = [
       {
         title: 'MAIN — Market AI Network',
         meta: 'Eurosystem · ongoing',
-        desc: 'Active presenter showcasing AI projects to central-banking professionals across the Eurosystem.',
+        desc: 'ECB-hosted conference bringing together markets and IT experts from across the national central banks to discuss developments in AI and technology for markets and central banking, and to showcase ongoing projects and initiatives at each institution. Presenting on behalf of the ECB.',
       },
       {
         title: 'LLM & RAG training for ECB staff',
-        meta: '5 sessions',
-        desc: 'Peer-to-peer trainer: 5 sessions on LLMs and RAG for 100+ ECB employees.',
-      },
-      {
-        title: 'AWS × European Central Bank Hackathon',
-        meta: 'Frankfurt · 2025',
-        desc: 'AI platform for supply-chain due diligence — agents and knowledge graphs, built in 3 days.',
-        href:'https://www.linkedin.com/posts/in-the-5th-edition-of-our-hackathon-series-ugcPost-7399837801896099840-9qSu/'
+        meta: '5 sessions · 100+ attendees',
+        desc: 'Peer-to-peer training delivered as part of an ECB initiative supporting staff adoption of AI. Sessions covered retrieval-augmented generation and agent workflows, complemented by hands-on workshops.',
       },
       {
         title: 'SurrealDB × LangChain Hackathon',
         meta: 'London · 2026',
-        desc: 'AI platform for supply-chain due diligence — agents and knowledge graphs, built in 3 days.',
-        href:'https://www.linkedin.com/posts/jacopo-manenti-7885651a7_many-thanks-to-surrealdb-and-langchain-for-ugcPost-7436882219870150656-lJLj/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADBQeBgBuPl7lszuUFa_le4Z63FnU7qgXbg'
+        desc: 'Build a LangChain agent on a knowledge graph in SurrealDB, in three days, solving a real business need. Working in a team of five, we built an AI platform with a chat interface for supply-chain due diligence, letting companies ask about their suppliers and partners.',        
+        tags: ['LangChain', 'SurrealDB', 'Agents', 'Knowledge Graphs'],
+        href: 'https://www.linkedin.com/posts/jacopo-manenti-7885651a7_many-thanks-to-surrealdb-and-langchain-for-ugcPost-7436882219870150656-lJLj/',
       },
+      {
+        title: 'ECB Hackathon — "From News to AI Forecasts"',
+        meta: 'Frankfurt · 2025',
+        role: '1st place',
+        desc: 'Improve medium-term forecasts of Eurozone negotiated wages using news data. Working in a team of six, we built sentiment-driven economic indicators from the GDELT Global Knowledge Graph and combined them with traditional indicators to fine-tune Chronos II, a time-series foundation model. First place.',
+        tags: ['Chronos II', 'GDELT'],
+        href:'https://www.linkedin.com/posts/in-the-5th-edition-of-our-hackathon-series-ugcPost-7399837801896099840-9qSu/'
+
+      },
+
+
 
     ],
   },
@@ -172,18 +193,18 @@ export const sections: Section[] = [
     preview: 'download · updated 2026-07',
     details: 'UPDATED 2026-07 - click to download',
     cv: true,
-      items: [
+    items: [
     {
       title: 'CV — Full',
       meta: 'two pages · 2026-07',
-      desc: 'Complete record: experience, education, projects, skills, talks.',
+      desc: 'Comprehensive two-page CV with experience, education, projects, skills, publications, and talks.',
       href: '/files/cv-full.pdf',
       download: true,
     },
     {
-      title: 'CV — One-pager',
+      title: 'CV — ATS friendly',
       meta: 'one page · 2026-07',
-      desc: 'Condensed to a single page. The version to send when brevity matters.',
+      desc: 'CV optimized for Applicant Tracking Systems and condensed to a single page.',
       href: '/files/cv-onepager.pdf',
       download: true,
     },
