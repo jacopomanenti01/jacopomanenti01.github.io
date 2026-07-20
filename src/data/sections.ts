@@ -126,6 +126,14 @@ export const sections: Section[] = [
           ],
         tags: ['Machine Learning', 'Deep Learning', 'Graph Neural Networks', 'Financial Simulation', 'Data Mining', 'Distributed Systems', 'Blockchain'],
       },
+            {
+        title: 'Summer School in Fintech',
+        meta: 'UPM Madrid · 2024',
+        role: 'Universidad Politécnica de Madrid · fully funded, selected by EIT Digital',
+        desc: 'Two-week intensive on fintech, machine learning applied to finance, fintech regulation, and blockchain.',
+        tags: ['Fintech', 'Project Management', 'Networking', 'Pitching'],
+
+      },
       {
         title: 'B.Sc. Economics, Organizations & Markets',
         meta: 'Cattolica · 2019–22',
@@ -135,14 +143,7 @@ export const sections: Section[] = [
         ],
         tags: ['Python', 'R', 'Econometrics', 'Time Series', 'Statistics'],
       }, 
-      {
-        title: 'Summer School in Fintech',
-        meta: 'UPM Madrid · 2024',
-        role: 'Universidad Politécnica de Madrid · fully funded, selected by EIT Digital',
-        desc: 'Two-week intensive on fintech, machine learning applied to finance, fintech regulation, and blockchain.',
-        tags: ['Fintech', 'Project Management', 'Networking', 'Pitching'],
 
-      },
       
     ],
   },
@@ -204,8 +205,8 @@ export const sections: Section[] = [
     {
       title: 'CV — ATS friendly',
       meta: 'one page · 2026-07',
-      desc: 'CV optimized for Applicant Tracking Systems and condensed to a single page.',
-      href: '/files/cv-onepager.pdf',
+      desc: 'CV optimized for Applicant Tracking Systems.',
+      href: '/files/Jacopo_Manenti_ATS_cv.pdf',
       download: true,
     },
   ],
