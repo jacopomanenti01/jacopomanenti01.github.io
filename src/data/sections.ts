@@ -199,7 +199,7 @@ export const sections: Section[] = [
       title: 'CV — Full',
       meta: 'two pages · 2026-07',
       desc: 'Comprehensive two-page CV with experience, education, projects, skills, publications, and talks.',
-      href: '/files/cv-full.pdf',
+      href: '/files/Jacopo_Manenti_Full_cv.pdf',
       download: true,
     },
     {
