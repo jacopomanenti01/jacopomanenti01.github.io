@@ -7,7 +7,7 @@ import icon from 'astro-icon';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://jacopomanenti01.github.io',
+  site: 'https://manenti.dev',
 
   vite: {
     plugins: [tailwindcss()]
