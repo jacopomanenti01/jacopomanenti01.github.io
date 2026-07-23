@@ -198,13 +198,13 @@ export const sections: Section[] = [
     {
       title: 'CV — Full',
       meta: 'two pages · 2026-07',
-      desc: 'Comprehensive two-page CV with experience, education, projects, skills, publications, and talks.',
+      desc: 'Comprehensive two-page CV with experience, education, projects, publications, talks, honors & awards.',
       href: '/files/Jacopo_Manenti_Full_cv.pdf',
       download: true,
     },
     {
       title: 'CV — ATS friendly',
-      meta: 'one page · 2026-07',
+      meta: 'two pages · 2026-07',
       desc: 'CV optimized for Applicant Tracking Systems.',
       href: '/files/Jacopo_Manenti_ATS_cv.pdf',
       download: true,
